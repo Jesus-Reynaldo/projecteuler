@@ -4,15 +4,15 @@
 // Find the sum of the digits in the number 100!
 const factorialSum=(num)=>{
     let factorial=BigInt(1);
-    let sum=BigInt(0);
+    let sum=0;
     for(let i =BigInt(1);i<num;i++){
         factorial=BigInt(factorial*i);
     }
-    let number= BigInt(factorial);
-    do{
-        sum+=BigInt(number%10n);
-        number=BigInt(number/10n);
-    }while(number!=0);
+    let number= BigInt(factorial).toString();
+    let length=number.length;
+    for (let i=0;i<length;i++){
+        sum+=parseInt(number[i]);
+    }
     return sum;
 }
-console.log(factorialSum(100));
+console.log(factorialSum(900000));
